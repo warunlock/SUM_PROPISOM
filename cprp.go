@@ -3,12 +3,13 @@
 import (
 	"fmt"
 	"strconv"
+	"strings"
 )
 
 func main() {
 
-	fmt.Println(cprp(1234567.1, "грн.", "коп."))
-	fmt.Println(cprp(1234567.1, "", ""))
+	fmt.Println(cprp(341505.81, "грн.", "коп."))
+//	fmt.Println(cprp(1234567.1, "", ""))
 
 }
 
@@ -144,8 +145,13 @@ RRR:
 
 func Class(M float64, I int) int {
 
-	M_S := fmt.Sprintf("%.0f", M)
+	M_S1 := fmt.Sprintf("%.2f", M)
+	split:= strings.Split(M_S1, ".")
+	M_S := split[0]
+	fmt.Println(M)
+	fmt.Println(M_S)
 
+	
 	if I > len(M_S) {
 		return 0
 	} else {
